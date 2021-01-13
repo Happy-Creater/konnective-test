@@ -20,6 +20,10 @@ module Konnektive
       response['message']
     end
 
+    def upsale
+      Subfolder.new('upsale', self)
+    end
+
     def order
       Subfolder.new('order', self)
     end
