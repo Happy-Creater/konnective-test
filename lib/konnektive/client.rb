@@ -4,7 +4,6 @@ module Konnektive
   class Client
     include HTTParty
     base_uri 'https://api.konnektive.com'
-    debug_output $stdout
 
     def initialize(login_id = nil, password = nil)
 
