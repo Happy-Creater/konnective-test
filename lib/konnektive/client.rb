@@ -22,23 +22,23 @@ module Konnektive
     end
 
     def order
-      Subfolder.new('/order', self)
+      Subfolder.new('/order/', self)
     end
 
     def purchase
-      Subfolder.new('/purchase', self)
+      Subfolder.new('/purchase/', self)
     end
 
     def customer
-      Subfolder.new('/customer', self)
+      Subfolder.new('/customer/', self)
     end
 
     def transactions
-      Subfolder.new('/transactions', self)
+      Subfolder.new('/transactions/', self)
     end
 
     def reports
-      Subfolder.new('/reports', self)
+      Subfolder.new('/reports/', self)
     end
 
 
