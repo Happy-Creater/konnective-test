@@ -4,10 +4,9 @@ module Konnektive
   class Client
     include HTTParty
     base_uri 'https://api.konnektive.com'
+    # debug_output $stdout
 
     def initialize(login_id = nil, password = nil)
-
-
       @query = {
           loginId: login_id || ENV['KONNEKTIVE_LOGIN_ID'],
           password: password || ENV['KONNEKTIVE_PASSWORD']
@@ -22,23 +21,23 @@ module Konnektive
     end
 
     def order
-      Subfolder.new('/order/', self)
+      Subfolder.new('order', self)
     end
 
     def purchase
-      Subfolder.new('/purchase/', self)
+      Subfolder.new('purchase', self)
     end
 
     def customer
-      Subfolder.new('/customer/', self)
+      Subfolder.new('customer', self)
     end
 
     def transactions
-      Subfolder.new('/transactions/', self)
+      Subfolder.new('transactions', self)
     end
 
     def reports
-      Subfolder.new('/reports/', self)
+      Subfolder.new('reports', self)
     end
 
 
@@ -50,7 +49,7 @@ module Konnektive
       end
 
       def method_missing(method_sym, *arguments, &block)
-        @client.request("#{@path}/#{method_sym}", arguments[0])
+        @client.request("/#{@path}/#{method_sym}/", arguments[0])
       end
     end
   end
