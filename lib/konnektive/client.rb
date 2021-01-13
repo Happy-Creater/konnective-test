@@ -18,7 +18,7 @@ module Konnektive
     def request(path, query)
       response = self.class.get(path, {query: @query.merge(query), format: :json}).parsed_response
       raise KonnektiveError.new(response['message']) if 'ERROR' == response['result']
-      response
+      response['message']
     end
 
     def order
